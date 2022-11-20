@@ -22,7 +22,12 @@ module Board = {
                 | 8 => "#2F6895"
                 | 16 => "#F5BD70"
                 | 32 => "#F2A032"
-                | _ => "transparent"
+                | other =>
+                  if other === 0 {
+                    "transparent"
+                  } else {
+                    "red"
+                  }
                 },
                 (),
               )}>
@@ -38,10 +43,20 @@ module Board = {
       } else {
         <span />
       }}
-      <Button onClick={_ => onMove(Up)}> {"Up"->React.string} </Button>
-      <Button onClick={_ => onMove(Down)}> {"Down"->React.string} </Button>
-      <Button onClick={_ => onMove(Left)}> {"Left"->React.string} </Button>
-      <Button onClick={_ => onMove(Right)}> {"Right"->React.string} </Button>
+      <div className="grid grid-cols-3 grid-rows-3 w-[180px]">
+        <div className="col-start-2">
+          <Button onClick={_ => onMove(Up)}> {"Up"->React.string} </Button>
+        </div>
+        <div className="col-start-2 row-start-3">
+          <Button onClick={_ => onMove(Down)}> {"Down"->React.string} </Button>
+        </div>
+        <div className="row-start-2">
+          <Button onClick={_ => onMove(Left)}> {"Left"->React.string} </Button>
+        </div>
+        <div className="row-start-2 col-start-3">
+          <Button onClick={_ => onMove(Right)}> {"Right"->React.string} </Button>
+        </div>
+      </div>
     </div>
 }
 

@@ -17,12 +17,17 @@ function Game$Board(Props) {
                   className: "relative border border-grey-200 w-[400px] h-[400px] grid grid-cols-4 grid-rows-4"
                 }, Belt_Array.concatMany(Belt_Array.mapWithIndex(BoardState.rows(state), (function (rowIdx, row) {
                             return Belt_Array.mapWithIndex(row, (function (colIdx, tile) {
-                                          var match = tile.value;
+                                          var other = tile.value;
                                           var tmp;
-                                          if (match >= 17) {
-                                            tmp = match !== 32 ? "transparent" : "#F2A032";
-                                          } else if (match >= 2) {
-                                            switch (match) {
+                                          var exit = 0;
+                                          if (other >= 17) {
+                                            if (other !== 32) {
+                                              exit = 1;
+                                            } else {
+                                              tmp = "#F2A032";
+                                            }
+                                          } else if (other >= 2) {
+                                            switch (other) {
                                               case 2 :
                                                   tmp = "#7CB5E2";
                                                   break;
@@ -43,7 +48,7 @@ function Game$Board(Props) {
                                               case 13 :
                                               case 14 :
                                               case 15 :
-                                                  tmp = "transparent";
+                                                  exit = 1;
                                                   break;
                                               case 16 :
                                                   tmp = "#F5BD70";
@@ -51,7 +56,10 @@ function Game$Board(Props) {
                                               
                                             }
                                           } else {
-                                            tmp = "transparent";
+                                            exit = 1;
+                                          }
+                                          if (exit === 1) {
+                                            tmp = other === 0 ? "transparent" : "red";
                                           }
                                           return React.createElement("div", {
                                                       key: tile.id,
@@ -67,27 +75,37 @@ function Game$Board(Props) {
                                         }));
                           })))), BoardState.isGameOver(state) ? React.createElement(P.make, {
                     children: "Game over"
-                  }) : React.createElement("span", undefined), React.createElement(Button.make, {
-                  onClick: (function (param) {
-                      Curry._1(onMove, /* Up */0);
-                    }),
-                  children: "Up"
-                }), React.createElement(Button.make, {
-                  onClick: (function (param) {
-                      Curry._1(onMove, /* Down */1);
-                    }),
-                  children: "Down"
-                }), React.createElement(Button.make, {
-                  onClick: (function (param) {
-                      Curry._1(onMove, /* Left */2);
-                    }),
-                  children: "Left"
-                }), React.createElement(Button.make, {
-                  onClick: (function (param) {
-                      Curry._1(onMove, /* Right */3);
-                    }),
-                  children: "Right"
-                }));
+                  }) : React.createElement("span", undefined), React.createElement("div", {
+                  className: "grid grid-cols-3 grid-rows-3 w-[180px]"
+                }, React.createElement("div", {
+                      className: "col-start-2"
+                    }, React.createElement(Button.make, {
+                          onClick: (function (param) {
+                              Curry._1(onMove, /* Up */0);
+                            }),
+                          children: "Up"
+                        })), React.createElement("div", {
+                      className: "col-start-2 row-start-3"
+                    }, React.createElement(Button.make, {
+                          onClick: (function (param) {
+                              Curry._1(onMove, /* Down */1);
+                            }),
+                          children: "Down"
+                        })), React.createElement("div", {
+                      className: "row-start-2"
+                    }, React.createElement(Button.make, {
+                          onClick: (function (param) {
+                              Curry._1(onMove, /* Left */2);
+                            }),
+                          children: "Left"
+                        })), React.createElement("div", {
+                      className: "row-start-2 col-start-3"
+                    }, React.createElement(Button.make, {
+                          onClick: (function (param) {
+                              Curry._1(onMove, /* Right */3);
+                            }),
+                          children: "Right"
+                        }))));
 }
 
 var Board = {

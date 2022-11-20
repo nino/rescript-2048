@@ -6,7 +6,7 @@ function Button(Props) {
   var onClick = Props.onClick;
   var children = Props.children;
   return React.createElement("button", {
-              className: "border rounded px-1 min-w-[32px] text-center",
+              className: "border rounded px-1 min-w-[32px] w-full text-center",
               onClick: onClick
             }, children);
 }
