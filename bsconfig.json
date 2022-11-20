@@ -1,0 +1,30 @@
+{
+  "name": "rpg-helper",
+  "namespace": false,
+  "reason": { "react-jsx": 3 },
+  "refmt": 3,
+  "bs-dependencies": [
+    "@rescript/react",
+    "@ryyppy/rescript-promise"
+  ],
+  "ppx-flags": [],
+  "sources": [
+    { "dir": "src", "subdirs": true },
+    { "dir": "test", "type": "dev", "subdirs": true }
+  ],
+  "package-specs": {
+    "module": "es6",
+    "in-source": true
+  },
+  "suffix": ".mjs",
+  "warnings": {
+    "number": "-3",
+    "error": "+101+8"
+  },
+  "gentypeconfig": {
+    "language": "untyped",
+    "shims": []
+  },
+  "bs-dev-dependencies": ["rescript-test"],
+  "bsc-flags": ["-open Belt"]
+}

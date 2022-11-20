@@ -1,0 +1,1 @@
+let uid: unit => string
