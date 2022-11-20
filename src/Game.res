@@ -2,7 +2,6 @@ module Board = {
   @react.component
   let make = (~state: BoardState.t, ~onMove: BoardState.direction => unit) =>
     <div>
-      <H1> {"Game board"->React.string} </H1>
       <div
         className="relative border border-grey-200 w-[400px] h-[400px] grid grid-cols-4 grid-rows-4">
         {BoardState.rows(state)
