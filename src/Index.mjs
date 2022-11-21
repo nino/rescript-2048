@@ -9,7 +9,12 @@ function $$default(param) {
               className: "container mx-auto"
             }, React.createElement(H1.make, {
                   children: "2048"
-                }), React.createElement(Game.make, {}));
+                }), React.createElement(Game.make, {}), React.createElement("footer", {
+                  className: "mt-16"
+                }, React.createElement("a", {
+                      className: "text-blue-700 underline",
+                      href: "https://github.com/nino/rescript-2048/"
+                    }, "https://github.com/nino/rescript-2048/")));
 }
 
 export {
