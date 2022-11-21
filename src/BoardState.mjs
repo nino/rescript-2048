@@ -41,10 +41,7 @@ function compactLeft(arr) {
   if (first.value === second.value) {
     return Belt_Array.concat([setTileValue(first, (first.value << 1))], compactLeft(Belt_Array.sliceToEnd(arr, 2)));
   } else {
-    return Belt_Array.concat([
-                first,
-                second
-              ], compactLeft(Belt_Array.sliceToEnd(arr, 2)));
+    return Belt_Array.concat([first], compactLeft(Belt_Array.sliceToEnd(arr, 1)));
   }
 }
 

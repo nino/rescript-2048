@@ -23,7 +23,7 @@ module Helpers = {
       if first.value === second.value {
         Array.concat([setTileValue(first, first.value * 2)], compactLeft(Array.sliceToEnd(arr, 2)))
       } else {
-        Array.concat([first, second], compactLeft(Array.sliceToEnd(arr, 2)))
+        Array.concat([first], compactLeft(Array.sliceToEnd(arr, 1)))
       }
     } else {
       arr
