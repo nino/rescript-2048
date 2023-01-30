@@ -22,7 +22,7 @@
     "res:start": "rescript build -w -with-deps"
   },
   "devDependencies": {
-    "@rescript/react": "0.10.3",
+    "@rescript/react": "0.11.0",
     "autoprefixer": "10.4.13",
     "gentype": "4.5.0",
     "next-transpile-modules": "10.0.0",
